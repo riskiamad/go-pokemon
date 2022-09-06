@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    container_name: MyPokemonService
+    build: .
+    ports: 
+      - 8081:80
+    restart: on-failure
+    networks:
+      - gopokemon
+    env_file:
+      - .env
+
+# Networks to be created to facilitate communication between containers
+networks:
+  gopokemon:
+    driver: bridge
