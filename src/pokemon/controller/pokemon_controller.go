@@ -12,7 +12,7 @@ type PokemonController struct{}
 func NewPokemonController(route fiber.Router) {
 	controller := &PokemonController{}
 
-	route.Get("/pokemon/catch", controller.Catch)
+	route.Get("/pokemon/:id/catch", controller.Catch)
 }
 
 func (c *PokemonController) Catch(ctx *fiber.Ctx) (err error) {
